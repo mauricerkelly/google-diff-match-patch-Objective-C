@@ -15,7 +15,6 @@
 		3D5BBFDF128C416900B8F5FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		3D5BC080128C44A700B8F5FF /* DiffMatchPatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D5BC07E128C44A700B8F5FF /* DiffMatchPatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D5BC081128C44A700B8F5FF /* DiffMatchPatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D5BC07F128C44A700B8F5FF /* DiffMatchPatch.m */; };
-		3D70BCC9128EDAF80078D1A6 /* NSString+UriCompatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D70BCC7128EDAF80078D1A6 /* NSString+UriCompatibility.m */; };
 		3D96F3BC12AFC6D800C3E5C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		3D96F44A12AFC82F00C3E5C0 /* speedtest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D96F44912AFC82F00C3E5C0 /* speedtest.m */; };
 		3D96F44F12AFC96A00C3E5C0 /* DiffMatchPatch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* DiffMatchPatch.framework */; };
@@ -71,8 +70,6 @@
 		3D5BC0DD128CAAE400B8F5FF /* DiffMatchPatchTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiffMatchPatchTest.h; sourceTree = "<group>"; };
 		3D5BC0DE128CAAE400B8F5FF /* DiffMatchPatchTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiffMatchPatchTest.m; sourceTree = "<group>"; };
 		3D5BC104128CAD6900B8F5FF /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		3D70BCC6128EDAF80078D1A6 /* NSString+UriCompatibility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UriCompatibility.h"; sourceTree = "<group>"; };
-		3D70BCC7128EDAF80078D1A6 /* NSString+UriCompatibility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UriCompatibility.m"; sourceTree = "<group>"; };
 		3D96F3A212AFC68900C3E5C0 /* speedtest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = speedtest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D96F43E12AFC76600C3E5C0 /* speedtest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = speedtest_Prefix.pch; path = ../speedtest_Prefix.pch; sourceTree = "<group>"; };
 		3D96F44912AFC82F00C3E5C0 /* speedtest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = speedtest.m; sourceTree = "<group>"; };
@@ -180,8 +177,6 @@
 				3DC87024129FF4B6001F602B /* NSString+JavaSubstring.m */,
 				3D08D25112A71B9C007A5316 /* NSString+UnicharUtilities.h */,
 				3D08D25212A71B9C007A5316 /* NSString+UnicharUtilities.m */,
-				3D70BCC6128EDAF80078D1A6 /* NSString+UriCompatibility.h */,
-				3D70BCC7128EDAF80078D1A6 /* NSString+UriCompatibility.m */,
 				3DEE4C70129D484D00885485 /* NSMutableDictionary+DMPExtensions.h */,
 				3DEE4C71129D484D00885485 /* NSMutableDictionary+DMPExtensions.m */,
 			);
@@ -421,7 +416,6 @@
 			files = (
 				3D5BC081128C44A700B8F5FF /* DiffMatchPatch.m in Sources */,
 				3DA641D1128DE21D00B33CE9 /* DiffMatchPatchCFUtilities.c in Sources */,
-				3D70BCC9128EDAF80078D1A6 /* NSString+UriCompatibility.m in Sources */,
 				3DEE4C73129D484D00885485 /* NSMutableDictionary+DMPExtensions.m in Sources */,
 				3DC87026129FF4B6001F602B /* NSString+JavaSubstring.m in Sources */,
 				3D08D25412A71B9C007A5316 /* NSString+UnicharUtilities.m in Sources */,
@@ -535,6 +529,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -563,6 +558,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 			};
 			name = Release;
 		};

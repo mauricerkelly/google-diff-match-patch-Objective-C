@@ -23,7 +23,6 @@
 #import "DiffMatchPatch.h"
 
 #import "NSString+JavaSubstring.h"
-#import "NSString+UriCompatibility.h"
 #import "NSMutableDictionary+DMPExtensions.h"
 #import "DiffMatchPatchCFUtilities.h"
 #import "JXArcCompatibilityMacros.h"
@@ -253,7 +252,8 @@ void splice(NSMutableArray *input, NSUInteger start, NSUInteger count, NSArray *
         break;
     }
 
-    [text appendString:[aDiff.text diff_stringByAddingPercentEscapesForEncodeUriCompatibility]];
+    NSCharacterSet *allowedCharacters = [NSCharacterSet characterSetWithCharactersInString:@" !~*'();/?:@&=+$,#"];
+    [text appendString:[aDiff.text stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters]];
     [text appendString:@"\n"];
   }
 
@@ -1503,10 +1503,10 @@ NS_INLINE NSString * diff_charsToTokenString(NSString *charsString, NSArray *tok
 {
   NSMutableString *delta = [NSMutableString string];
   for (Diff *aDiff in diffs) {
+    NSCharacterSet *allowedCharacters = [NSCharacterSet characterSetWithCharactersInString:@" !~*'();/?:@&=+$,#"];
     switch (aDiff.operation) {
       case DIFF_INSERT:
-        [delta appendFormat:@"+%@\t", [[aDiff.text diff_stringByAddingPercentEscapesForEncodeUriCompatibility]
-                                       stringByReplacingOccurrencesOfString:@"%20" withString:@" "]];
+        [delta appendFormat:@"+%@\t", [aDiff.text stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters]];
         break;
       case DIFF_DELETE:
         [delta appendFormat:@"-%" PRId32 "\t", (int32_t)aDiff.text.length];
@@ -1552,7 +1552,7 @@ NS_INLINE NSString * diff_charsToTokenString(NSString *charsString, NSArray *tok
     switch ([token characterAtIndex:0]) {
       case '+':
       {
-        param = [param diff_stringByReplacingPercentEscapesForEncodeUriCompatibility];
+        param = [param stringByRemovingPercentEncoding];
         if (param == nil) {
           if (error != NULL) {
             errorDetail = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -2737,8 +2737,7 @@ NS_INLINE NSString * diff_charsToTokenString(NSString *charsString, NSArray *tok
         textPointer++;
         continue;
       }
-      line = [[textAtTextPointer substringFromIndex:1]
-              diff_stringByReplacingPercentEscapesForEncodeUriCompatibility];
+      line = [[textAtTextPointer substringFromIndex:1] stringByRemovingPercentEncoding];
       if (sign == '-') {
         // Deletion.
         [patch.diffs addObject:[Diff diffWithOperation:DIFF_DELETE andText:line]];
