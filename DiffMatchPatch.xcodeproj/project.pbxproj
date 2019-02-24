@@ -583,6 +583,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = "mode-test";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -605,6 +606,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = "mode-test";
+				VALID_ARCHS = x86_64;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -613,6 +615,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -631,6 +634,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME}";
 				PRODUCT_NAME = DiffMatchPatchTest;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -638,6 +642,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -655,6 +660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yourcompany.${PRODUCT_NAME}";
 				PRODUCT_NAME = DiffMatchPatchTest;
+				VALID_ARCHS = x86_64;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -680,6 +686,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = speedtest;
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -702,6 +709,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = speedtest;
+				VALID_ARCHS = x86_64;
 				ZERO_LINK = NO;
 			};
 			name = Release;
