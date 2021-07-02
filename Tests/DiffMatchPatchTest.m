@@ -26,6 +26,8 @@
 #import "NSMutableDictionary+DMPExtensions.h"
 #import "JXArcCompatibilityMacros.h"
 
+#import "DiffMatchPatchCFUtilities.h"
+
 #define stringForBOOL(A)  ([((NSNumber *)A) boolValue] ? @"true" : @"false")
 
 @interface DiffMatchPatchTest (PrivatMethods)
@@ -33,6 +35,15 @@
 @end
 
 @implementation DiffMatchPatchTest
+
+- (void)test_diff_halfMatchICreate {
+  CFStringRef longerText = CFSTR("abcdefghijklmnop");
+  CFStringRef shorterText = CFSTR("defghijk");
+  
+  CFArrayRef hm1 = diff_halfMatchICreate(longerText, shorterText, 4);
+  NSLog(@"%@", hm1);
+}
+
 
 - (void)test_diff_commonPrefixTest {
   DiffMatchPatch *dmp = [DiffMatchPatch new];
